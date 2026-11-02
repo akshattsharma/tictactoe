@@ -1,38 +1,17 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+:root { --bg: #f4f6fb; --ink: #1d2433; --muted: #66708a; --accent: #3b5bdb; --line: #dfe3ee; --win: #d3f9d8; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; }
+.app { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 24px 16px; }
+h1 { margin: 0; font-size: clamp(1.5rem, 5vw, 2.2rem); letter-spacing: -0.02em; }
+.status { margin: 0; font-size: 1.1rem; font-weight: 600; color: var(--muted); }
+.board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: min(330px, 88vw); }
+.square { aspect-ratio: 1 / 1; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); font: inherit; font-size: clamp(2rem, 9vw, 2.8rem); font-weight: 700; cursor: pointer; }
+.square:hover:not(:disabled) { border-color: var(--accent); }
+.square.win { background: var(--win); border-color: #2f9e44; }
+.reset { border: 0; border-radius: 10px; background: var(--accent); color: #fff; padding: 12px 28px; font: inherit; font-weight: 600; cursor: pointer; }
+.reset:hover { filter: brightness(1.08); }
+.square:focus-visible, .reset:focus-visible { outline: 3px solid #9db0ff; outline-offset: 2px; }
+.scores { display: flex; gap: 10px; }
+.score { min-width: 84px; padding: 8px 14px; background: #fff; border: 1px solid var(--line); border-radius: 10px; font-weight: 600; text-align: center; }
+.controls { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.reset.secondary { background: #fff; color: var(--ink); border: 1px solid var(--line); }
